@@ -120,14 +120,15 @@ public class CompiladorFrame extends javax.swing.JFrame {
 
     // Metodo para actualizacion de tabla que muestra el buffer de entrada 
     private void actualizarGUIBufferEntrada() {
-        String[] nombresCol = {"Complex", "Lexema", "Entrada"};
+        String[] nombresCol = {"Numero", "Token", "Clasificacion", "Tipo dato"};
         Linea_BE[] buffEnt = compilador.getBufferEntrada();
-        Object[][] datos = new Object[buffEnt.length][3];
+        Object[][] datos = new Object[buffEnt.length][4];
 
         for (int i = 0; i < buffEnt.length; i++) {
-            datos[i][0] = buffEnt[i].getComplex();
+            datos[i][0] = i+1;
+            datos[i][2] = buffEnt[i].getComplex();
             datos[i][1] = buffEnt[i].getLexema();
-            datos[i][2] = buffEnt[i].getEntrada();
+            datos[i][3] = buffEnt[i].getEntrada();
         }
 
 //        DefaultTableModel modelo = new DefaultTableModel(datos, nombresCol);
